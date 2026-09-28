@@ -1,0 +1,1590 @@
+/* ==========================================================
+   app.css
+   Part1
+   基本設定・初期画面・入力フォーム
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    background:#eef7ff;
+
+    font-family:
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+
+    color:#222;
+
+}
+
+body{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+/*==========================================================
+共通画面
+==========================================================*/
+
+.screen{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:
+
+    linear-gradient(
+
+    180deg,
+
+    #eef7ff 0%,
+
+    #dceeff 100%
+
+    );
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+/*==========================================================
+カード共通
+==========================================================*/
+
+.setupCard,
+.loadingBox,
+.countdownCard,
+.memoryCard,
+.answerCard,
+.memoryResultCard,
+.resultCard{
+
+    width:min(90%,720px);
+
+    background:#ffffff;
+
+    border-radius:25px;
+
+    padding:35px;
+
+    box-shadow:
+
+    0 15px 40px
+
+    rgba(0,0,0,0.15);
+
+}
+
+/*==========================================================
+タイトル
+==========================================================*/
+
+.appTitle{
+
+    font-size:2.2rem;
+
+    text-align:center;
+
+    color:#1565c0;
+
+    margin-bottom:20px;
+
+}
+
+.description{
+
+    text-align:center;
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    color:#444;
+
+    margin-bottom:35px;
+
+}
+
+/*==========================================================
+フォーム
+==========================================================*/
+
+.formGroup{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:20px;
+
+}
+
+.formGroup label{
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+    color:#333;
+
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    font-size:1rem;
+
+    border-radius:12px;
+
+    border:
+
+    2px solid
+
+    #b5d8ff;
+
+    background:white;
+
+    transition:
+
+    .25s;
+
+}
+
+input:focus,
+select:focus{
+
+    outline:none;
+
+    border-color:
+
+    #1976d2;
+
+    box-shadow:
+
+    0 0 10px
+
+    rgba(25,118,210,.25);
+
+}
+
+/*==========================================================
+ボタン
+==========================================================*/
+
+.primaryBtn{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:20px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    #2196f3,
+
+    #1565c0
+
+    );
+
+    color:white;
+
+    font-size:1.1rem;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.primaryBtn:hover{
+
+    transform:scale(1.03);
+
+}
+
+.primaryBtn:active{
+
+    transform:scale(.98);
+
+}
+
+.secondaryBtn{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:12px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#9e9e9e;
+
+    color:white;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+}
+
+/*==========================================================
+ロード画面
+==========================================================*/
+
+.loadingBox{
+
+    text-align:center;
+
+}
+
+.loadingBox h2{
+
+    color:#1565c0;
+
+    font-size:2rem;
+
+    margin-bottom:20px;
+
+}
+
+#loadingText{
+
+    font-size:1.15rem;
+
+    color:#444;
+
+}
+
+/*==========================================================
+カウントダウン
+==========================================================*/
+
+.countdownCard{
+
+    text-align:center;
+
+}
+
+.countdownMessage{
+
+    font-size:2rem;
+
+    color:#1565c0;
+
+    font-weight:bold;
+
+    margin-bottom:35px;
+
+    line-height:1.6;
+
+}
+
+.countdownNumber{
+
+    font-size:7rem;
+
+    font-weight:bold;
+
+    color:#ff9800;
+
+}
+
+/*==========================================================
+記憶テスト
+==========================================================*/
+
+.memoryTitle{
+
+    text-align:center;
+
+    color:#1565c0;
+
+    margin-bottom:30px;
+
+}
+
+.memoryDigits{
+
+    font-size:2.2rem;
+
+    font-weight:bold;
+
+    letter-spacing:.15em;
+
+    text-align:center;
+
+    color:#0d47a1;
+
+    word-break:break-all;
+
+    margin-bottom:30px;
+
+}
+
+.memoryTimer{
+
+    text-align:center;
+
+    font-size:3rem;
+
+    color:#f44336;
+
+    font-weight:bold;
+
+}
+/*==========================================================
+回答画面
+==========================================================*/
+
+.answerCard{
+
+    text-align:center;
+
+}
+
+.answerTitle{
+
+    font-size:2rem;
+
+    color:#1565c0;
+
+    margin-bottom:30px;
+
+    line-height:1.5;
+
+}
+
+.memoryAnswerInput{
+
+    width:100%;
+
+    padding:18px;
+
+    border-radius:15px;
+
+    border:2px solid #90caf9;
+
+    font-size:2rem;
+
+    text-align:center;
+
+    letter-spacing:.15em;
+
+    margin-bottom:25px;
+
+}
+
+.memoryAnswerInput:focus{
+
+    outline:none;
+
+    border-color:#1976d2;
+
+    box-shadow:0 0 12px rgba(25,118,210,.3);
+
+}
+
+.answerButtons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+/*==========================================================
+運動前結果画面
+==========================================================*/
+
+.memoryResultCard{
+
+    text-align:center;
+
+}
+
+.memoryResultCard h2{
+
+    font-size:2rem;
+
+    color:#1565c0;
+
+    margin-bottom:25px;
+
+}
+
+.memoryResultMain{
+
+    font-size:2rem;
+
+    font-weight:bold;
+
+    color:#1976d2;
+
+    margin-bottom:25px;
+
+    line-height:1.7;
+
+}
+
+.memoryResultSub{
+
+    font-size:1.3rem;
+
+    color:#444;
+
+    margin-bottom:35px;
+
+}
+
+/*==========================================================
+運動画面
+==========================================================*/
+
+.trainingScreen{
+
+    background:#000;
+
+    overflow:hidden;
+
+}
+
+#video{
+
+    display:none;
+
+}
+
+#canvas{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+}
+
+/*==========================================================
+安全メッセージ
+==========================================================*/
+
+.safetyMessage{
+
+    position:absolute;
+
+    top:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:#ffeb3b;
+
+    color:#222;
+
+    padding:12px 20px;
+
+    border-radius:15px;
+
+    font-weight:bold;
+
+    font-size:1rem;
+
+    z-index:100;
+
+}
+
+/* ==========================================================
+   トレーニング遷移オーバーレイ（黒画面 + 大きな運動名）
+   ========================================================== */
+.transitionOverlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+}
+.transitionOverlay.hidden{ display:none !important; }
+.nextExerciseName{
+    color:#ffffff;
+    font-size:clamp(2.2rem,6vw,5rem);
+    font-weight:900;
+    text-align:center;
+    padding:20px;
+}
+
+/*==========================================================
+警告表示
+==========================================================*/
+
+.warning{
+
+    position:absolute;
+
+    top:70px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:#f44336;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:12px;
+
+    font-size:1rem;
+
+    font-weight:bold;
+
+    display:none;
+
+    z-index:100;
+
+}
+
+/*==========================================================
+現在の運動
+==========================================================*/
+
+#exercisePanel{
+
+    position:absolute;
+
+    top:20px;
+
+    left:20px;
+
+    width:260px;
+
+    background:rgba(255,255,255,.92);
+
+    border-radius:20px;
+
+    padding:20px;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.2);
+
+}
+
+.exerciseTitle{
+
+    font-size:1rem;
+
+    color:#666;
+
+    margin-bottom:10px;
+
+}
+
+#exerciseName{
+
+    font-size:2rem;
+
+    font-weight:bold;
+
+    color:#1565c0;
+
+    margin-bottom:12px;
+
+}
+
+#exerciseTarget{
+
+    font-size:1.8rem;
+
+    font-weight:800;
+
+    color:#b71c1c;
+
+    line-height:1.35;
+
+}
+
+/*==========================================================
+運動進行状況
+==========================================================*/
+
+#trainingProgress{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    width:220px;
+
+    background:rgba(255,255,255,.92);
+
+    border-radius:20px;
+
+    padding:20px;
+
+    text-align:center;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.2);
+
+}
+
+.progressTitle{
+
+    color:#666;
+
+    margin-bottom:10px;
+
+}
+
+#progressText{
+
+    font-size:1.6rem;
+
+    color:#1976d2;
+
+    font-weight:bold;
+
+}
+/*==========================================================
+ステータスパネル
+==========================================================*/
+
+.statsPanel{
+
+    position:absolute;
+
+    bottom:20px;
+
+    left:20px;
+
+    display:flex;
+
+    gap:15px;
+
+    z-index:100;
+
+}
+
+.statCard{
+
+    width:120px;
+
+    background:rgba(255,255,255,.92);
+
+    border-radius:18px;
+
+    padding:15px;
+
+    text-align:center;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.18);
+
+}
+
+.statCard .label{
+
+    font-size:0.95rem;
+
+    color:#666;
+
+    margin-bottom:10px;
+
+}
+
+.statCard .value{
+
+    font-size:2rem;
+
+    font-weight:bold;
+
+    color:#1565c0;
+
+}
+
+/*==========================================================
+FPS表示
+==========================================================*/
+
+.fpsPanel{
+
+    position:absolute;
+
+    bottom:20px;
+
+    right:20px;
+
+    background:rgba(0,0,0,.75);
+
+    color:#00ff66;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    font-size:1rem;
+
+    font-weight:bold;
+
+    font-family:monospace;
+
+    z-index:100;
+
+}
+
+/*==========================================================
+リセットボタン
+==========================================================*/
+
+.resetBtn{
+
+    position:absolute;
+
+    top:50%;
+
+    right:20px;
+
+    transform:translateY(-50%);
+
+    background:#f44336;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:14px 20px;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    transition:.25s;
+
+    z-index:100;
+
+}
+
+.resetBtn:hover{
+
+    background:#d32f2f;
+
+    transform:translateY(-50%) scale(1.05);
+
+}
+
+.resetBtn:active{
+
+    transform:translateY(-50%) scale(.96);
+
+}
+
+/* 終了ボタン（最初に戻るボタンと同サイズで下に並べる） */
+.endBtn{
+    position:absolute;
+    top:calc(50% + 70px);
+    right:20px;
+    background:#9e9e9e; /* グレーにして secondary 感を出す */
+    color:#fff;
+    z-index:100;
+}
+
+/* EXCELLENT バッジ（腹部に短時間表示） */
+.excellentBadge{
+    position:absolute;
+    left:50%;
+    top:55%;
+    transform:translate(-50%,-50%);
+    background:rgba(20,120,40,0.9);
+    color:#fff;
+    padding:12px 20px;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:1.8rem;
+    letter-spacing:.08em;
+    z-index:250;
+    pointer-events:none;
+    text-shadow:0 2px 8px rgba(0,0,0,0.35);
+}
+
+/*==========================================================
+結果画面
+==========================================================*/
+
+.resultCard{
+
+    text-align:center;
+
+}
+
+.resultTitle{
+
+    font-size:2.3rem;
+
+    color:#1565c0;
+
+    margin-bottom:30px;
+
+}
+
+.resultSection{
+
+    margin-bottom:30px;
+
+    text-align:left;
+
+}
+
+.resultSection h3{
+
+    color:#1976d2;
+
+    margin-bottom:12px;
+
+    font-size:1.3rem;
+
+}
+
+.resultRow{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:10px 0;
+
+    border-bottom:1px solid #e0e0e0;
+
+    font-size:1.1rem;
+
+}
+
+.highlightRow{
+
+    font-size:1.3rem;
+
+    font-weight:bold;
+
+    color:#1565c0;
+
+}
+
+.resultComment{
+
+    margin-top:25px;
+
+    font-size:1.15rem;
+
+    color:#444;
+
+    line-height:1.8;
+
+    text-align:center;
+
+}
+
+/*==========================================================
+アニメーション
+==========================================================*/
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.setupCard,
+.loadingBox,
+.countdownCard,
+.memoryCard,
+.answerCard,
+.memoryResultCard,
+.resultCard{
+
+    animation:fadeIn .4s ease;
+
+}
+
+/*==========================================================
+レスポンシブ（iPad・タブレット）
+==========================================================*/
+
+@media (max-width:1024px){
+
+    .setupCard,
+    .loadingBox,
+    .countdownCard,
+    .memoryCard,
+    .answerCard,
+    .memoryResultCard,
+    .resultCard{
+
+        width:95%;
+
+        padding:25px;
+
+    }
+
+    .memoryDigits{
+
+        font-size:1.8rem;
+
+        letter-spacing:.08em;
+
+    }
+
+    .countdownNumber{
+
+        font-size:5.5rem;
+
+    }
+
+    #exercisePanel{
+
+        width:220px;
+
+    }
+
+    #trainingProgress{
+
+        width:200px;
+
+    }
+
+    .statCard{
+
+        width:100px;
+
+    }
+
+}
+
+/*==========================================================
+スマートフォン
+==========================================================*/
+
+@media (max-width:600px){
+
+    .appTitle{
+
+        font-size:1.8rem;
+
+    }
+
+    .description{
+
+        font-size:1rem;
+
+    }
+
+    .memoryDigits{
+
+        font-size:1.3rem;
+
+    }
+
+    .memoryTimer{
+
+        font-size:2.3rem;
+
+    }
+
+    .statsPanel{
+
+        flex-wrap:wrap;
+
+        width:calc(100% - 40px);
+
+    }
+
+    .statCard{
+
+        flex:1;
+
+        min-width:90px;
+
+    }
+
+    #exercisePanel{
+
+        width:calc(100% - 40px);
+
+        left:20px;
+
+        right:20px;
+
+    }
+
+    #trainingProgress{
+
+        width:calc(100% - 40px);
+
+        top:170px;
+
+        left:20px;
+
+        right:20px;
+
+    }
+
+    .fpsPanel{
+
+        font-size:.9rem;
+
+    }
+
+    .resetBtn{
+
+        bottom:20px;
+
+        top:auto;
+
+        right:20px;
+
+        transform:none;
+
+    }
+
+}
+/*==========================================================
+Part4
+デザイン仕上げ
+==========================================================*/
+
+/* ===== ボタンアニメーション ===== */
+
+.primaryBtn,
+.secondaryBtn,
+.resetBtn{
+
+    transition:
+
+    background .25s,
+
+    transform .2s,
+
+    box-shadow .2s;
+
+}
+
+.primaryBtn:hover{
+
+    box-shadow:
+
+    0 8px 18px
+
+    rgba(33,150,243,.35);
+
+}
+
+.secondaryBtn:hover{
+
+    box-shadow:
+
+    0 8px 18px
+
+    rgba(100,100,100,.3);
+
+}
+
+.resetBtn:hover{
+
+    box-shadow:
+
+    0 8px 18px
+
+    rgba(244,67,54,.35);
+
+}
+
+/* ===== 数字表示 ===== */
+
+.value{
+
+    user-select:none;
+
+    text-shadow:
+
+    0 2px 8px
+
+    rgba(25,118,210,.25);
+
+}
+
+/* ===== 結果画面 ===== */
+
+.resultSection{
+
+    background:#f8fbff;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    margin-bottom:20px;
+
+}
+
+.resultSection h3{
+
+    border-left:
+
+    6px solid #1976d2;
+
+    padding-left:10px;
+
+}
+
+/* ===== メモリー数字 ===== */
+
+.memoryDigits{
+
+    background:#f3f9ff;
+
+    border-radius:15px;
+
+    padding:25px;
+
+}
+
+/* ===== カウントダウン ===== */
+
+.countdownNumber{
+
+    animation:
+
+    countdownPulse
+
+    1s infinite;
+
+}
+
+@keyframes countdownPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.15);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===== ロード画面 ===== */
+
+.loadingBox{
+
+    animation:
+
+    fadeIn .5s;
+
+}
+
+/* ===== ステータスカード ===== */
+
+.statCard{
+
+    transition:.25s;
+
+}
+
+.statCard:hover{
+
+    transform:
+
+    translateY(-3px);
+
+}
+
+/* ===== Canvas ===== */
+
+canvas{
+
+    image-rendering:auto;
+
+}
+
+/* ===== スクロール防止 ===== */
+
+body{
+
+    touch-action:none;
+
+    overscroll-behavior:none;
+
+}
+
+/* ===== iPad ===== */
+
+@media (min-width:768px){
+
+    .memoryDigits{
+
+        font-size:2.4rem;
+
+    }
+
+    .countdownNumber{
+
+        font-size:7rem;
+
+    }
+
+}
+
+/* ===== 大画面 ===== */
+
+@media (min-width:1400px){
+
+    .setupCard,
+    .memoryCard,
+    .resultCard{
+
+        max-width:900px;
+
+    }
+
+}
+
+/*==========================================================
+End
+==========================================================*/
+
+/* 運動画面: 読みやすさと表示見本 */
+#exercisePanel{
+    width:clamp(300px,25vw,390px);
+    padding:18px 22px;
+}
+
+.exerciseTitle,
+#exerciseName,
+#exerciseTarget,
+.progressTitle,
+#progressText{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.exerciseTitle,
+.progressTitle{
+    font-size:clamp(1rem,1.25vw,1.2rem);
+}
+
+#exerciseName{
+    font-size:clamp(2rem,3vw,3.2rem);
+    line-height:1.15;
+    letter-spacing:.03em;
+    margin-bottom:8px;
+}
+
+#exerciseTarget{
+    font-size:clamp(1.2rem,1.7vw,1.65rem);
+    font-weight:bold;
+}
+
+#trainingProgress{
+    width:clamp(260px,22vw,340px);
+    padding:18px;
+}
+
+#progressText{
+    font-size:clamp(1.5rem,2.1vw,2.25rem);
+}
+
+@media (max-width:700px){
+    #exercisePanel{
+        top:12px;
+        left:12px;
+        width:calc(100% - 24px);
+        padding:12px 16px;
+    }
+
+    #trainingProgress{
+        top:115px;
+        left:12px;
+        right:auto;
+        width:calc(100% - 24px);
+        padding:10px 16px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        text-align:left;
+    }
+
+    .progressTitle{ margin:0; }
+    .statsPanel{ bottom:12px; left:12px; gap:8px; width:calc(100% - 24px); }
+    .statCard{ min-width:0; padding:10px 6px; }
+    .statCard .label{ white-space:nowrap; font-size:.78rem; }
+    .resetBtn{ right:12px; }
+}
+
+/* ユニバーサルデザイン: 文字を大きく、十分なコントラストと操作の見やすさを確保 */
+#exercisePanel{
+    width:clamp(400px,36vw,540px);
+    background:rgba(255,255,255,.97);
+    border:3px solid #0b5cad;
+}
+
+#exerciseName{
+    font-size:clamp(1.7rem,2.7vw,3.2rem);
+    color:#073d73;
+    overflow:visible;
+    text-overflow:clip;
+}
+
+#exerciseTarget{
+    color:#202020;
+}
+
+/* グーパー運動の指示は、カメラ映像の上でも一目で読める大きさにする */
+#exerciseTarget{
+    white-space:normal;
+    overflow:visible;
+    text-overflow:clip;
+    font-size:clamp(1.45rem,2.35vw,2.35rem);
+    font-weight:800;
+    color:#a80000;
+    line-height:1.35;
+}
+
+#exerciseTarget.openHand{
+    color:#0059a8;
+}
+
+#trainingProgress,
+.statCard{
+    background:rgba(255,255,255,.97);
+    border:2px solid #4c84b8;
+}
+
+.exerciseTitle,
+.progressTitle,
+.statCard .label{
+    color:#303030;
+    font-weight:bold;
+}
+
+.memoryDigits{
+    white-space:pre;
+    word-break:normal;
+    overflow-wrap:normal;
+    font-size:clamp(1.7rem,4.4vw,3rem);
+    line-height:1.55;
+    letter-spacing:.12em;
+    color:#052f5c;
+    border:3px solid #1565c0;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible{
+    outline:4px solid #ff8c00;
+    outline-offset:3px;
+}
+
+@media (max-width:700px){
+    #exerciseName{
+        font-size:clamp(1.35rem,6.2vw,1.9rem);
+        letter-spacing:0;
+    }
+
+    #exercisePanel{
+        width:calc(100% - 24px);
+        border-width:2px;
+    }
+
+    .memoryDigits{
+        font-size:clamp(1.25rem,6.2vw,1.75rem);
+        letter-spacing:.07em;
+        padding:18px 8px;
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+        transition-duration:.01ms !important;
+    }
+}
+
+.exerciseGoal{
+    position:absolute;
+    top:185px;
+    left:20px;
+    width:clamp(400px,36vw,540px);
+    padding:12px 18px;
+    border:3px solid #0b5cad;
+    border-radius:14px;
+    background:#ffffff;
+    color:#073d73;
+    font-size:clamp(1.15rem,1.6vw,1.5rem);
+    font-weight:bold;
+    line-height:1.35;
+    white-space:nowrap;
+    z-index:100;
+}
+
+.exerciseGoal.isCleared{
+    border-color:#147a35;
+    background:#effaf1;
+    color:#075c25;
+}
+
+@media (max-width:700px){
+    .exerciseGoal{
+        top:116px;
+        left:12px;
+        width:calc(100% - 24px);
+        padding:8px 12px;
+        border-width:2px;
+        font-size:clamp(1rem,4.6vw,1.25rem);
+    }
+
+    #trainingProgress{
+        top:166px;
+    }
+}
+
+/* 小型端末では操作パネルをカメラ映像上で重ねず、指示を優先して表示する。 */
+@media (max-width:700px) and (orientation:portrait){
+    .screen:not(.trainingScreen){
+        min-height:100dvh;
+        height:auto;
+        overflow-y:auto;
+        align-items:flex-start;
+        padding:16px;
+    }
+
+    .setupCard, .loadingBox, .countdownCard, .memoryCard, .answerCard, .memoryResultCard, .resultCard{
+        width:100%;
+        max-width:560px;
+        margin:auto;
+        padding:22px 18px;
+        border-radius:18px;
+    }
+
+    .appTitle, .answerTitle, .memoryResultCard h2, .resultTitle{ font-size:clamp(1.45rem, 7vw, 2rem); }
+    .countdownMessage{ font-size:clamp(1.35rem, 6vw, 1.8rem); margin-bottom:20px; }
+    .countdownNumber{ font-size:clamp(4.5rem, 24vw, 6rem); }
+    .memoryResultMain{ font-size:clamp(1.35rem, 6vw, 1.8rem); }
+
+    .safetyMessage, .warning{
+        left:12px;
+        transform:none;
+        width:calc(100% - 24px);
+        text-align:center;
+        font-size:.82rem;
+        padding:8px 10px;
+    }
+    .safetyMessage{ top:216px; }
+    .warning{ top:258px; }
+    .exerciseGoal{ top:115px; }
+    #trainingProgress{ top:166px; }
+    .statsPanel{ bottom:58px; }
+    .fpsPanel{ right:12px; bottom:12px; padding:8px 10px; }
+    .resetBtn{ right:auto; left:12px; bottom:12px; padding:9px 12px; }
+}
+
+/* 横向きスマートフォンでは左右に情報を分け、カメラ映像を広く保つ。 */
+@media (max-height:600px) and (orientation:landscape){
+    #exercisePanel{ top:8px; left:8px; width:min(42vw, 360px); padding:10px 12px; }
+    #trainingProgress{ top:8px; right:8px; width:min(32vw, 250px); padding:10px 12px; }
+    .exerciseGoal{ top:106px; left:8px; width:min(42vw, 360px); padding:7px 10px; font-size:clamp(.85rem, 2vw, 1.1rem); }
+    .safetyMessage{ top:auto; bottom:56px; left:50%; max-width:48vw; padding:6px 10px; font-size:.75rem; }
+    .warning{ top:62px; max-width:48vw; padding:7px 10px; font-size:.75rem; text-align:center; }
+    .statsPanel{ bottom:8px; left:8px; gap:6px; }
+    .statCard{ width:82px; padding:7px; border-radius:10px; }
+    .statCard .label{ font-size:.7rem; margin-bottom:3px; }
+    .statCard .value{ font-size:1.3rem; }
+    .fpsPanel{ right:8px; bottom:8px; padding:7px 10px; }
+    .resetBtn{ top:auto; bottom:8px; right:110px; transform:none; padding:8px 11px; font-size:.8rem; }
+}
