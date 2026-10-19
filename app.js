@@ -68,7 +68,13 @@ function updateResultUI() {
     afterRateResult.textContent = afterScore + "%"; improveRate.textContent = (improveScore >= 0 ? "+" : "") + improveScore + "%";
     resultSquat.textContent = squatCount + "回"; resultJump.textContent = jumpCount + "回"; resultKcal.textContent = calorie.toFixed(1) + " kcal";
 }
-function generateDigits() { return Array.from({ length: MEMORY_LENGTH }, () => Math.floor(Math.random() * 10)).join(""); }
+function generateDigits(previousDigits = "") {
+    let nextDigits = "";
+    do {
+        nextDigits = Array.from({ length: MEMORY_LENGTH }, () => Math.floor(Math.random() * 10)).join("");
+    } while (previousDigits && nextDigits === previousDigits);
+    return nextDigits;
+}
 function countCorrect(answer, correct) {
     return Array.from({ length: MEMORY_LENGTH }, (_, index) => answer[index] === correct[index]).filter(Boolean).length;
 }
@@ -206,7 +212,9 @@ function showTransition(nextIndex) {
     }, 3000);
 }
 function finishTraining() {
-    clearTimers(); running = false; cancelAnimationFrame(animationId); phase = "after"; startCountdown();
+    clearTimers(); running = false; cancelAnimationFrame(animationId);
+    randomDigits = generateDigits(randomDigits);
+    phase = "after"; startCountdown();
 }
 
 function showWarning(message) { warning.textContent = message; warning.style.display = message ? "block" : "none"; }
