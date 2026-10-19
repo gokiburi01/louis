@@ -69,11 +69,30 @@ function updateResultUI() {
     resultSquat.textContent = squatCount + "回"; resultJump.textContent = jumpCount + "回"; resultKcal.textContent = calorie.toFixed(1) + " kcal";
 }
 function generateDigits(previousDigits = "") {
-    let nextDigits = "";
-    do {
-        nextDigits = Array.from({ length: MEMORY_LENGTH }, () => Math.floor(Math.random() * 10)).join("");
-    } while (previousDigits && nextDigits === previousDigits);
-    return nextDigits;
+    const safePreviousDigits = typeof previousDigits === "string" ? previousDigits : "";
+
+    if (!safePreviousDigits) {
+        return Array.from({ length: MEMORY_LENGTH }, () => Math.floor(Math.random() * 10)).join("");
+    }
+
+    for (let attempt = 0; attempt < 1000; attempt += 1) {
+        const candidate = Array.from({ length: MEMORY_LENGTH }, () => Math.floor(Math.random() * 10)).join("");
+        if (candidate !== safePreviousDigits) {
+            return candidate;
+        }
+    }
+
+    const digits = safePreviousDigits.split("");
+    let index = Math.floor(Math.random() * MEMORY_LENGTH);
+    let nextDigit = Math.floor(Math.random() * 10);
+
+    while (String(nextDigit) === digits[index]) {
+        index = Math.floor(Math.random() * MEMORY_LENGTH);
+        nextDigit = Math.floor(Math.random() * 10);
+    }
+
+    digits[index] = String(nextDigit);
+    return digits.join("");
 }
 function countCorrect(answer, correct) {
     return Array.from({ length: MEMORY_LENGTH }, (_, index) => answer[index] === correct[index]).filter(Boolean).length;
