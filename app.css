@@ -16,7 +16,8 @@ body{
     width:100%;
     height:100%;
 
-    overflow:hidden;
+    overflow-x:hidden;
+    overflow-y:auto;
 
     background:#eef7ff;
 
@@ -50,11 +51,15 @@ body{
 
     width:100%;
     height:100%;
+    min-height:100dvh;
 
     display:flex;
 
     justify-content:center;
     align-items:center;
+
+    overflow-y:auto;
+    overflow-x:hidden;
 
     background:
 
@@ -493,6 +498,11 @@ select:focus{
 
     overflow:hidden;
 
+}
+
+.screen:not(.trainingScreen){
+    overflow-y:auto;
+    overflow-x:hidden;
 }
 
 #video{
