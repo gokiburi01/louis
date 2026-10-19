@@ -16,7 +16,7 @@ const submitAnswerBtn = $("submitAnswer"), giveUpBtn = $("giveUpBtn"), beforeRat
 const startTrainingBtn = $("startTrainingBtn"), video = $("video"), canvas = $("canvas"), ctx = canvas.getContext("2d");
 const transitionOverlay = $("transitionOverlay"), nextExerciseName = $("nextExerciseName");
 const warning = $("warning"), exerciseName = $("exerciseName"), exerciseTarget = $("exerciseTarget"), progressText = $("progressText");
-const exerciseGoal = $("exerciseGoal");
+const exerciseGoal = $("exerciseGoal"), goalDisplay = $("goalDisplay");
 const sq = $("sq"), jp = $("jp"), kcal = $("kcal"), fpsValue = $("fpsValue"), resetBtn = $("resetBtn"), endTrainingBtn = $("endTrainingBtn");
 const excellentBadge = $("excellentBadge");
 const beforeCorrectResult = $("beforeCorrectResult"), beforeRateResult = $("beforeRateResult");
@@ -311,6 +311,10 @@ function updateExerciseGoal() {
         count >= GOAL_REPS
             ? "クリア！ " + count + "回　そのまま続けてもよいです"
             : "目標 " + GOAL_REPS + "回　現在 " + count + "回";
+
+    if (goalDisplay) {
+        goalDisplay.textContent = count + " / " + GOAL_REPS + " 回";
+    }
 
     exerciseGoal.classList.toggle(
         "isCleared",
