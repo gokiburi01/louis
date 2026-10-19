@@ -16,7 +16,7 @@ const submitAnswerBtn = $("submitAnswer"), giveUpBtn = $("giveUpBtn"), beforeRat
 const startTrainingBtn = $("startTrainingBtn"), video = $("video"), canvas = $("canvas"), ctx = canvas.getContext("2d");
 const transitionOverlay = $("transitionOverlay"), nextExerciseName = $("nextExerciseName");
 const warning = $("warning"), exerciseName = $("exerciseName"), exerciseTarget = $("exerciseTarget"), progressText = $("progressText");
-const exerciseGoal = $("exerciseGoal"), goalDisplay = $("goalDisplay");
+const exerciseGoal = $("exerciseGoal"), exerciseCountdown = $("exerciseCountdown"), goalDisplay = $("goalDisplay");
 const sq = $("sq"), jp = $("jp"), kcal = $("kcal"), fpsValue = $("fpsValue"), resetBtn = $("resetBtn"), endTrainingBtn = $("endTrainingBtn");
 const excellentBadge = $("excellentBadge");
 const beforeCorrectResult = $("beforeCorrectResult"), beforeRateResult = $("beforeRateResult");
@@ -194,6 +194,7 @@ function startExercise() {
         gripPhaseValidated = false; gripStableFrames = 0; processedHandResultVersion = handResultVersion; updateGripInstruction();
     }
     updateExerciseGoal();
+    updateExerciseCountdownDisplay();
     progressText.textContent = (completedExercises + 1) + " / " + TOTAL_EXERCISES + " セット";
     if (exercise.type !== "grip") exerciseTarget.textContent = "残り " + remainExerciseTime + " 秒";
     clearInterval(trainingTimer);
@@ -204,6 +205,7 @@ function startExercise() {
         // グーパーは独自ロジックで更新
         if (exercise.type === "grip") updateGripPhase(performance.now());
         else exerciseTarget.textContent = "残り " + remainExerciseTime + " 秒";
+        updateExerciseCountdownDisplay();
         // 総合時間に到達したら終了（できるだけ正確に）
         if (elapsedTraining >= TOTAL_TRAINING_TIME) { finishTraining(); return; }
         if (remainExerciseTime <= 0) nextExercise();
@@ -211,6 +213,10 @@ function startExercise() {
 }
 function nextExercise() {
     clearInterval(trainingTimer);
+    if (exerciseCountdown) {
+        exerciseCountdown.classList.add("hidden");
+        exerciseCountdown.textContent = "5";
+    }
     completedExercises += 1;
     if (completedExercises >= TOTAL_EXERCISES) { finishTraining(); return; }
     // 次のインデックス
@@ -320,6 +326,19 @@ function updateExerciseGoal() {
         "isCleared",
         count >= GOAL_REPS
     );
+}
+
+function updateExerciseCountdownDisplay() {
+    if (!exerciseCountdown) return;
+
+    if (!running || remainExerciseTime > 5) {
+        exerciseCountdown.classList.add("hidden");
+        exerciseCountdown.textContent = "5";
+        return;
+    }
+
+    exerciseCountdown.textContent = String(remainExerciseTime);
+    exerciseCountdown.classList.remove("hidden");
 }
     
 
