@@ -726,6 +726,60 @@ select:focus{
 
 }
 
+.goalPanel{
+
+    position:absolute;
+
+    bottom:20px;
+
+    left:20px;
+
+    width:260px;
+
+    background:rgba(255,255,255,.97);
+
+    border:2px solid #4c84b8;
+
+    border-radius:18px;
+
+    padding:16px 18px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.18);
+
+    z-index:100;
+
+}
+
+.goalPanelLabel{
+
+    font-size:0.95rem;
+
+    color:#303030;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+    text-align:center;
+
+}
+
+.goalDisplay{
+
+    font-size:clamp(1.8rem, 2.5vw, 2.8rem);
+
+    font-weight:900;
+
+    color:#073d73;
+
+    text-align:center;
+
+    line-height:1.25;
+
+    letter-spacing:0.04em;
+
+}
+
 .statCard{
 
     width:120px;
@@ -1074,6 +1128,22 @@ FPS表示
 
     }
 
+    .goalPanel{
+
+        left:12px;
+
+        bottom:12px;
+
+        width:calc(100% - 24px);
+
+    }
+
+    .goalDisplay{
+
+        font-size:clamp(1.5rem, 7vw, 2.2rem);
+
+    }
+
     .statCard{
 
         flex:1;
@@ -1402,6 +1472,8 @@ End
 
     .progressTitle{ margin:0; }
     .statsPanel{ bottom:12px; left:12px; gap:8px; width:calc(100% - 24px); }
+    .goalPanel{ bottom:12px; left:12px; width:calc(100% - 24px); }
+    .goalDisplay{ font-size:clamp(1.4rem, 6vw, 2rem); }
     .statCard{ min-width:0; padding:10px 6px; }
     .statCard .label{ white-space:nowrap; font-size:.78rem; }
     .resetBtn{ right:12px; }
@@ -1586,6 +1658,9 @@ select:focus-visible{
     .safetyMessage{ top:auto; bottom:56px; left:50%; max-width:48vw; padding:6px 10px; font-size:.75rem; }
     .warning{ top:62px; max-width:48vw; padding:7px 10px; font-size:.75rem; text-align:center; }
     .statsPanel{ bottom:8px; left:8px; gap:6px; }
+    .goalPanel{ bottom:8px; left:8px; width:min(30vw, 240px); padding:8px 10px; }
+    .goalPanelLabel{ font-size:.7rem; margin-bottom:4px; }
+    .goalDisplay{ font-size:clamp(1.2rem, 2vw, 1.8rem); }
     .statCard{ width:82px; padding:7px; border-radius:10px; }
     .statCard .label{ font-size:.7rem; margin-bottom:3px; }
     .statCard .value{ font-size:1.3rem; }
